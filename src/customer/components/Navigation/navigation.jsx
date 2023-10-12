@@ -44,6 +44,7 @@ export default function Navigation() {
   const handleCategoryClick = (category, section, item, close) => {
     navigate(`${category.id}/${section.id}/${item.id}`);
     close();
+    setOpen(false);
   };
 
   return (
@@ -358,13 +359,12 @@ export default function Navigation() {
                                                     handleCategoryClick(
                                                       category,
                                                       section,
-                                                      item,
+                                                      item,                                                  
                                                       // eslint-disable-next-line no-restricted-globals
                                                       close
                                                     );
-                                                    setOpen(false);// Close the mobile menu
-                                                  }}
                                                   
+                                                  }}
                                                   className="hover:text-gray-800 cursor-pointer"
                                                 >
                                                   {item.name}
