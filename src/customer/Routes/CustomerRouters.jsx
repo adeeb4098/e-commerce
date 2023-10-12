@@ -6,6 +6,9 @@ import Navigation from "../components/Navigation/navigation";
 import Footer from "../components/Footer/Footer";
 import Product from "../components/Product/Product";
 import ProductDetails from "../components/ProductDetails/ProductDetails";
+import Checkout from "../components/Checkout/CheckOut";
+import Order from "../components/Order/Order";
+import OrderDetails from "../components/Order/OrderDetails";
 
 const CustomerRouters = () => {
   return (
@@ -18,6 +21,9 @@ const CustomerRouters = () => {
         <Route path="/cart" element={<Cart/>}></Route>
         <Route path='/:lavelOne/:lavelTwo/:lavelThre' element={<Product/>}></Route>
         <Route path='/product/:productId' element={<ProductDetails/>}></Route>
+        <Route path='/checkout' element={<Checkout/>}></Route>
+        <Route path='/account/order' element={<Order/>}></Route>
+        <Route path='/account/order/:orderId' element={<OrderDetails/>}></Route>
         
         {/* <Product/> */}
         {/* <ProductDetails /> */}

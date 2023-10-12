@@ -6,6 +6,7 @@ import ProductReviewCard from "./ProductReviewCard";
 import themes from "./themes";
 import { mens_kurta } from "../../../data/Men/men_kurta";
 import HomeSectionCard from "../HomeSectionCard/HomeSectionCard";
+import { useNavigate } from "react-router-dom";
 
 const product = {
   name: "Basic Tee 6-Pack",
@@ -64,6 +65,11 @@ function classNames(...classes) {
 export default function ProductDetails() {
   const [selectedColor, setSelectedColor] = useState(product.colors[0]);
   const [selectedSize, setSelectedSize] = useState(product.sizes[2]);
+  const navigate = useNavigate();
+
+  const handleAddToCart = () => {
+    navigate("/cart");
+  };
 
   return (
     <div className="bg-white lg:px-20">
@@ -302,6 +308,7 @@ export default function ProductDetails() {
                 </div>
 
                 <Button
+                  onClick={handleAddToCart}
                   variant="contained"
                   sx={{
                     px: "2rem",
@@ -456,8 +463,9 @@ export default function ProductDetails() {
         <section className="pt-10">
           <h1 className="px-8 py-5 text-xl font-bold ">Similar Products</h1>
           <div className="flex flex-wrap space-y-5 justify-center items-center">
-            {mens_kurta.map((item)=><HomeSectionCard product={item}/>)}
-
+            {mens_kurta.map((item) => (
+              <HomeSectionCard product={item} />
+            ))}
           </div>
         </section>
       </div>

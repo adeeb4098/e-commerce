@@ -18,10 +18,11 @@ function classNames(...classes) {
 
 export default function Navigation() {
   const [open, setOpen] = useState(false);
-  const navigate=useNavigate();
+  const navigate = useNavigate();
   const [openAuthModal, setOpenAuthModal] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
   const openUserMenu = Boolean(anchorEl);
+
   const jwt = localStorage.getItem("jwt");
 
   const handleUserClick = (event) => {
@@ -143,6 +144,7 @@ export default function Navigation() {
                         {category.sections.map((section) => (
                           <div key={section.name}>
                             <p
+                              onClick={() => {}}
                               id={`${category.id}-${section.id}-heading-mobile`}
                               className="font-medium text-gray-900"
                             >
@@ -158,6 +160,17 @@ export default function Navigation() {
                                   <a
                                     href={item.href}
                                     className="-m-2 block p-2 text-gray-500"
+                                    onClick={() => {
+                                      // Handle item click and call the desktop navigation function
+                                      handleCategoryClick(
+                                        category,
+                                        section,
+                                        item,
+                                        // eslint-disable-next-line no-restricted-globals
+                                        close
+                                      );
+                                      setOpen(false); // Close the mobile menu
+                                    }}
                                   >
                                     {item.name}
                                   </a>
@@ -409,7 +422,7 @@ export default function Navigation() {
                         <MenuItem onClick={handleCloseUserMenu}>
                           Profile
                         </MenuItem>
-                        <MenuItem onClick={handleCloseUserMenu}>
+                        <MenuItem onClick={() => navigate("/account/order")}>
                           My Orders
                         </MenuItem>
                         <MenuItem onClick={handleCloseUserMenu}>
