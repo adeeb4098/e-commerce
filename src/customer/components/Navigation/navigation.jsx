@@ -18,6 +18,7 @@ function classNames(...classes) {
 
 export default function Navigation() {
   const [open, setOpen] = useState(false);
+  const [desktopMenuOpen, setDesktopMenuOpen] = useState(false);
   const navigate = useNavigate();
   const [openAuthModal, setOpenAuthModal] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
@@ -352,15 +353,18 @@ export default function Navigation() {
                                                 className="flex"
                                               >
                                                 <p
-                                                  onClick={() =>
+                                                  onClick={() => {
+                                                    // Handle item click and call the desktop navigation function
                                                     handleCategoryClick(
                                                       category,
                                                       section,
                                                       item,
                                                       // eslint-disable-next-line no-restricted-globals
                                                       close
-                                                    )
-                                                  }
+                                                    );
+                                                    setOpen(false);// Close the mobile menu
+                                                  }}
+                                                  
                                                   className="hover:text-gray-800 cursor-pointer"
                                                 >
                                                   {item.name}
