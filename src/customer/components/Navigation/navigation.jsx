@@ -359,11 +359,10 @@ export default function Navigation() {
                                                     handleCategoryClick(
                                                       category,
                                                       section,
-                                                      item,                                                  
+                                                      item,
                                                       // eslint-disable-next-line no-restricted-globals
                                                       close
                                                     );
-                                                  
                                                   }}
                                                   className="hover:text-gray-800 cursor-pointer"
                                                 >
